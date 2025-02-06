@@ -1,39 +1,35 @@
-body {
-    font-family: sans-serif;
-    margin: 20px;
-}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Fondo que cambia de color</title>
+    <style>
+        body {
+            margin: 0; /* Elimina los márgenes predeterminados del cuerpo */
+            overflow: hidden; /* Evita barras de desplazamiento */
+        }
+    </style>
+</head>
+<body>
+    <script>
+        // Obtén el elemento body
+        const body = document.body;
 
-fieldset {
-    border: 1px solid #ccc;
-    padding: 20px;
-    margin-bottom: 20px;
-}
+        // Función para generar un color aleatorio en formato hexadecimal
+        function generarColorAleatorio() {
+            const r = Math.floor(Math.random() * 256);
+            const g = Math.floor(Math.random() * 256);
+            const b = Math.floor(Math.random() * 256);
+            return `#${r.toString(16)}${g.toString(16)}${b.toString(16)}`;
+        }
 
-legend {
-    font-weight: bold;
-}
+        // Función para cambiar el color de fondo
+        function cambiarColorFondo(evento) {
+            const color = generarColorAleatorio();
+            body.style.backgroundColor = color;
+        }
 
-label {
-    display: block;
-    margin-bottom: 5px;
-}
-
-input[type="text"] {
-    width: 100%;
-    padding: 8px;
-    margin-bottom: 10px;
-    box-sizing: border-box;
-}
-
-button {
-    padding: 10px 20px;
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    cursor: pointer;
-}
-
-#resultado1, #resultado2, #resultado3 {
-    margin-top: 10px;
-    font-weight: bold;
-}
+        // Agrega un evento de escucha para el movimiento del ratón
+        body.addEventListener('mousemove', cambiarColorFondo);
+    </script>
+</body>
+</html>
