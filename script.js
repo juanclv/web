@@ -37,6 +37,6 @@ document.addEventListener('mousemove', (evento) => {
     estela.style.height = 0 + 'px';
     setTimeout(() => {
       body.removeChild(estela);
-    }, 500);
-  }, 5000);
+    }, 10);
+  }, 50);
 });
