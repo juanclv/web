@@ -1,59 +1,25 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Elemento que se mueve con el ratón y deja estela</title>
-<style>
-body {
-  margin: 0;
-  overflow: hidden;
-}
-
-#elemento {
-  position: absolute;
-  width: 100px;
-  height: 100px;
-  background-color: red;
-}
-
-.estela {
-  position: absolute;
-  width: 100px;
-  height: 100px;
-  background-color: rgba(255, 0, 0, 0.5); /* Rojo semitransparente */
-  pointer-events: none; /* Evita que la estela bloquee los eventos del ratón */
-  transition: opacity 0.5s ease-in-out; /* Transición suave para la opacidad */
-}
-</style>
+  <title>Página con encabezado, menú y efecto de gelatina</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <header>
+    <h1>Mi página web</h1>
+  </header>
+
+  <nav>
+    <ul>
+      <li><a href="#">Inicio</a></li>
+      <li><a href="#">Acerca de</a></li>
+      <li><a href="#">Servicios</a></li>
+      <li><a href="#">Contacto</a></li>
+    </ul>
+  </nav>
+
   <div id="elemento"></div>
 
-  <script>
-    const elemento = document.getElementById('elemento');
-    const body = document.body;
-
-    document.addEventListener('mousemove', (evento) => {
-      const x = evento.clientX - elemento.offsetWidth / 2;
-      const y = evento.clientY - elemento.offsetHeight / 2;
-
-      elemento.style.left = x + 'px';
-      elemento.style.top = y + 'px';
-
-      // Crea un elemento de estela
-      const estela = document.createElement('div');
-      estela.classList.add('estela');
-      estela.style.left = x + 'px';
-      estela.style.top = y + 'px';
-      body.appendChild(estela);
-
-      // Elimina la estela después de 5 segundos
-      setTimeout(() => {
-        estela.style.opacity = 0; // Hace que la estela se desvanezca
-        setTimeout(() => {
-          body.removeChild(estela); // Elimina la estela del DOM
-        }, 500); // Espera a que la transición de opacidad termine
-      }, 5000);
-    });
-  </script>
+  <script src="script.js"></script>
 </body>
 </html>
