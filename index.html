@@ -1,36 +1,34 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Fondo que cambia de color</title>
-    <style>
-        body {
-            margin: 0; /* Elimina los márgenes predeterminados del cuerpo */
-            overflow: hidden; /* Evita barras de desplazamiento */
-            transition: background-color 0.5s ease; /* Transición suave para el color de fondo */
-        }
-    </style>
+<title>Elemento que se mueve con el ratón</title>
+<style>
+body {
+  margin: 0;
+  overflow: hidden;
+}
+
+#elemento {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  background-color: red;
+}
+</style>
 </head>
 <body>
-    <script>
-        // Obtén el elemento body
-        const body = document.body;
+  <div id="elemento"></div>
 
-        // Función para generar un color aleatorio en formato hexadecimal
-        function generarColorAleatorio() {
-            const r = Math.floor(Math.random() * 256);
-            const g = Math.floor(Math.random() * 256);
-            const b = Math.floor(Math.random() * 256);
-            return `#${r.toString(16).padStart(2, '0')}${g.toString(16).padStart(2, '0')}${b.toString(16).padStart(2, '0')}`;
-        }
+  <script>
+    const elemento = document.getElementById('elemento');
 
-        // Función para cambiar el color de fondo
-        function cambiarColorFondo(evento) {
-            const color = generarColorAleatorio();
-            body.style.backgroundColor = color;
-        }
+    document.addEventListener('mousemove', (evento) => {
+      const x = evento.clientX - elemento.offsetWidth / 2;
+      const y = evento.clientY - elemento.offsetHeight / 2;
 
-        // Agrega un evento de escucha para el movimiento del ratón
-        body.addEventListener('mousemove', cambiarColorFondo);
-    </script>
+      elemento.style.left = x + 'px';
+      elemento.style.top = y + 'px';
+    });
+  </script>
 </body>
 </html>
