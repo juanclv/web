@@ -1,5 +1,66 @@
 body {
-    margin: 0;
-    overflow: hidden;
-    transition: background-color 0.5s ease; /* Transición suave para el color de fondo */
+  margin: 0;
+  overflow: hidden;
+  font-family: sans-serif;
+}
+
+header {
+  background-color: #f0f0f0;
+  padding: 20px;
+  text-align: center;
+}
+
+nav {
+  background-color: #333;
+  color: white;
+  padding: 10px;
+}
+
+nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+
+nav li {
+  display: inline;
+  margin: 0 10px;
+  transition: transform 0.3s ease; /* Transición para el efecto de gelatina */
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  display: inline-block; /* Necesario para aplicar la transformación */
+}
+
+nav li:hover {
+  animation: gelatina 0.5s infinite; /* Animación al pasar el ratón */
+}
+
+@keyframes gelatina {
+  0% { transform: scale(1, 1); }
+  25% { transform: scale(1.1, 0.9); }
+  50% { transform: scale(0.9, 1.1); }
+  75% { transform: scale(1.05, 0.95); }
+  100% { transform: scale(1, 1); }
+}
+
+#elemento {
+  position: absolute;
+  width: 5px;
+  height: 5px;
+  background-color: red;
+  border-radius: 50%; /* Hace el elemento circular */
+}
+
+.estela {
+  position: absolute;
+  width: 5px;
+  height: 5px;
+  background-color: rgba(255, 0, 0, 0.5);
+  border-radius: 50%; /* Hace la estela circular */
+  pointer-events: none;
+  transition: opacity 0.5s ease-in-out, width 0.5s ease, height 0.5s ease;
 }
