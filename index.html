@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Calculadora de ecuaciones</title>
+    <link rel="stylesheet" href="style.css"> </head>
+<body>
+    <h1>Calculadora de ecuaciones</h1>
+    <div id="ecuacion-primer-grado">
+        <h2>Ecuación de primer grado</h2>
+        <input type="text" id="a1" placeholder="a">
+        <input type="text" id="x1" placeholder="x">
+        <input type="text" id="b1" placeholder="b">
+        <button onclick="resolverEcuacionPrimerGrado()">Resolver</button>
+        <div id="resultado1"></div>
+    </div>
+    <div id="ecuacion-segundo-grado">
+        <h2>Ecuación de segundo grado</h2>
+        <input type="text" id="a2" placeholder="a">
+        <input type="text" id="b2" placeholder="b">
+        <input type="text" id="c2" placeholder="c">
+        <button onclick="resolverEcuacionSegundoGrado()">Resolver</button>
+        <div id="resultado2"></div>
+    </div>
+    <div id="sistema-ecuaciones">
+        <h2>Sistema de ecuaciones</h2>
+        <input type="text" id="a3" placeholder="a">
+        <input type="text" id="x3" placeholder="x">
+        <input type="text" id="b3" placeholder="b">
+        <input type="text" id="c3" placeholder="c">
+        <input type="text" id="d3" placeholder="d">
+        <input type="text" id="y3" placeholder="y">
+        <input type="text" id="e3" placeholder="e">
+        <button onclick="resolverSistemaEcuaciones()">Resolver</button>
+        <div id="resultado3"></div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
