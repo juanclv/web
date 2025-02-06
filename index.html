@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Elemento que se mueve con el ratón</title>
+<title>Elemento que se mueve con el ratón y deja estela</title>
 <style>
 body {
   margin: 0;
@@ -14,6 +14,15 @@ body {
   height: 100px;
   background-color: red;
 }
+
+.estela {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  background-color: rgba(255, 0, 0, 0.5); /* Rojo semitransparente */
+  pointer-events: none; /* Evita que la estela bloquee los eventos del ratón */
+  transition: opacity 0.5s ease-in-out; /* Transición suave para la opacidad */
+}
 </style>
 </head>
 <body>
@@ -21,6 +30,7 @@ body {
 
   <script>
     const elemento = document.getElementById('elemento');
+    const body = document.body;
 
     document.addEventListener('mousemove', (evento) => {
       const x = evento.clientX - elemento.offsetWidth / 2;
@@ -28,6 +38,21 @@ body {
 
       elemento.style.left = x + 'px';
       elemento.style.top = y + 'px';
+
+      // Crea un elemento de estela
+      const estela = document.createElement('div');
+      estela.classList.add('estela');
+      estela.style.left = x + 'px';
+      estela.style.top = y + 'px';
+      body.appendChild(estela);
+
+      // Elimina la estela después de 5 segundos
+      setTimeout(() => {
+        estela.style.opacity = 0; // Hace que la estela se desvanezca
+        setTimeout(() => {
+          body.removeChild(estela); // Elimina la estela del DOM
+        }, 500); // Espera a que la transición de opacidad termine
+      }, 5000);
     });
   </script>
 </body>
