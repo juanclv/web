@@ -1,52 +1,39 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Calculadora de ecuaciones</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <h1>Calculadora de ecuaciones</h1>
+body {
+    font-family: sans-serif;
+    margin: 20px;
+}
 
-    <fieldset>
-        <legend>Ecuación de primer grado</legend>
-        <label for="a1">Coeficiente de x:</label>
-        <input type="text" id="a1" placeholder="Coeficiente de x">
-        <label for="b1">Término independiente:</label>
-        <input type="text" id="b1" placeholder="Término independiente">
-        <button onclick="resolverEcuacionPrimerGrado()">Resolver</button>
-        <div id="resultado1"></div>
-    </fieldset>
+fieldset {
+    border: 1px solid #ccc;
+    padding: 20px;
+    margin-bottom: 20px;
+}
 
-    <fieldset>
-        <legend>Ecuación de segundo grado</legend>
-        <label for="a2">Coeficiente de x²:</label>
-        <input type="text" id="a2" placeholder="Coeficiente de x²">
-        <label for="b2">Coeficiente de x:</label>
-        <input type="text" id="b2" placeholder="Coeficiente de x">
-        <label for="c2">Término independiente:</label>
-        <input type="text" id="c2" placeholder="Término independiente">
-        <button onclick="resolverEcuacionSegundoGrado()">Resolver</button>
-        <div id="resultado2"></div>
-    </fieldset>
+legend {
+    font-weight: bold;
+}
 
-    <fieldset>
-        <legend>Sistema de ecuaciones</legend>
-        <label for="a3">a:</label>
-        <input type="text" id="a3" placeholder="a">
-        <label for="b3">b:</label>
-        <input type="text" id="b3" placeholder="b">
-        <label for="c3">c:</label>
-        <input type="text" id="c3" placeholder="c">
-        <label for="d3">d:</label>
-        <input type="text" id="d3" placeholder="d">
-        <label for="e3">e:</label>
-        <input type="text" id="e3" placeholder="e">
-        <label for="f3">f:</label>
-        <input type="text" id="f3" placeholder="f">
-        <button onclick="resolverSistemaEcuaciones()">Resolver</button>
-        <div id="resultado3"></div>
-    </fieldset>
+label {
+    display: block;
+    margin-bottom: 5px;
+}
 
-    <script src="script.js"></script>
-</body>
-</html>
+input[type="text"] {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+#resultado1, #resultado2, #resultado3 {
+    margin-top: 10px;
+    font-weight: bold;
+}
